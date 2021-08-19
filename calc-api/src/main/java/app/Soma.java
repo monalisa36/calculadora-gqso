@@ -1,13 +1,19 @@
 package app;
-
-import io.jooby.Jooby;
 import io.jooby.annotations.*;
+import io.jooby.exception.*;
 
-public class Soma {
-    @Path ("/soma/{a}/{b}")
-    @GET
-    public String s(@PathParam String a, @PathParam String b) {
-        double s = Double.parseDouble(a) + Double.parseDouble(b);
-        return String.format(s);
+public class Soma{
+    @Path ( "/soma/{b}/{m}")
+    @GET 
+    public String rotaDaSoma(@PathParam String b, @PathParam String m){
+        try {
+            double s = Double.parseDouble(b) + Double.parseDouble(m);
+
+            return String.format("%.1f", s);
+        } 
+        catch (NumberFormatException nfe) {
+           throw new BadRequestException(String.format("É preciso informar o parâmentro correto"));
+        }
+        
     }
 }
