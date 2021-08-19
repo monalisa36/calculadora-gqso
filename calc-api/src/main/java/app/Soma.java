@@ -12,7 +12,7 @@ public class Soma{
             return String.format("%.1f", s);
         } 
         catch (NumberFormatException nfe) {
-           throw new BadRequestException(String.format("É preciso informar o parâmentro correto"));
+           throw new BadRequestException(String.format("É preciso informar um paramêtro válido"));
         }
         
     }
