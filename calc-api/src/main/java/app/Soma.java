@@ -11,7 +11,8 @@ public class Soma{
 
             return String.format("%.1f", s);
         } 
-        // Informar que o parâmetro inserido está incorreto
+        // Informar que o parâmetro inserido está errado e que é necessário adicionar outro
+    
         catch (NumberFormatException nfe) {
            throw new BadRequestException(String.format("É preciso informar um paramêtro válido"));
         }
